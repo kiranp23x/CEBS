@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Edit Profile Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+		body {
+	  		padding-top: 150px;
+            background-color: aliceblue;
+	  	}
+        div {
+            padding: 10px;
+        }
+        #title {
+            font-size: 30px;
+        }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Theatre Name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="movielisting.html">Movie Listing</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="checkout.html"><span class="glyphicon glyphicon-check"></span>Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/editPro"><span class="glyphicon glyphicon-edit-pro"></span> Edit Profile </a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+        </ul>
+    </div>
+</nav>
+<!--  /Navigation Bar -->
+<!-- Container -->
+<div class="container">
+    <p id="title">Edit Profile</p>
+    <div align="center">
+        <form  th:action="save" th:object="${customer}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <input type="text" name="firstName" th:value="*{firstName}"/>
+                    </td>
+                </tr>
+                <tr>
+                <td>Last Name</td>
+                <td>
+                    <input type="text" name="lastName" th:value="*{lastName}"/>
+                </td>
+                </tr>
+                <tr>
+                    <td>Email Address</td>
+                    <td>
+                        <input type="text" name="emailAddress" th:value="*{emailAddress}" readonly="readonly"/>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>Current Subscription to Promo Code</td>
+                    <td>
+                        <input type="text" th:value="*{emailPromo}" readonly="readonly"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Change Subscription</td>
+                    <td>
+                        <select name="subscribe" class="form-control">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <form  th:action="@{/save}" th:object="${billingAddr}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Card Number</td>
+                    <td>
+                        <input type="text" th:value="*{cardNumber}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Street 1</td>
+                    <td>
+                        <input type="text" name="firstName" th:value="*{street1}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Street2</td>
+                    <td>
+                        <input type="text" name="lastName" th:value="*{street2}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <input type="text" name="emailAddress" th:value="*{city}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td>
+                        <input type="text" th:value="*{state}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Zip Code</td>
+                    <td>
+                        <input type="text" th:value="*{zipCode}"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-1"></div>
+        <a class="btn btn-primary" href="/indexLogin">Save</a>
+        <div class="col-sm-offset-3 col-sm-9"></div>
+        <a class="btn btn-primary" href="/indexLogin">Cancel</a>
+    </div>
+</div>
+<!-- /Container -->
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Movie Listing</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+		body {
+	  		padding-top: 150px;
+            background-color: aliceblue;
+            overflow-x: hidden;
+	  	}
+        .check {
+            transform: translate(20%, -85%);
+        }
+        .timecheck {
+            transform: translate(40%, -535%);
+        }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Theatre Name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="movielisting.html">Movie Listing</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="checkout.html"><span class="glyphicon glyphicon-check"></span>Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="/add"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+        </ul>
+    </div>
+</nav>
+<!--  /Navigation Bar -->
+<!-- Filter -->
+<div class="container">
+    <p style="font-size: 30px"> All Movies: </p>
+    <form action="moviepagesample.html">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <button type="button" class="btn btn-link glyphicon glyphicon-chevron-down" id="filterbtn" onclick="filterMovies()" data-toggle="collapse" data-target="#filters"> Filter </button>
+    <div id="filters" class="collapse">
+        <div class="form-check">
+            <form action="" method="post">
+                <p> Scheduled date</p>
+                <input type="date" name="filterdate">
+                <br><br>
+                <p> Ratings </p>
+                <div class="form-check">
+                    <input type="checkbox" id="rG" name="rPG"> G
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="rPG" name="rPG"> PG
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="rPG13" name="rpg13"> PG-13
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="rR" name="rR"> R
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="rNC17" name="rnc17"> NC-17
+                </div>
+                <br>
+                <div class="check">
+                    <p class="check"> Genres </p>
+                    <div class="check">
+                        <input type="checkbox" id="action" name="action"> Action
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="advent" name="advent"> Adventure
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="comedy" name="comedy"> Comedy
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="drama" name="drama"> Drama
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="family" name="family"> Family
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="fantasy" name="fantasy"> Fantasy
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="horror" name="horror"> Horror
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="mystery" name="mystery"> Mystery
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="romance" name="romance"> Romance
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="scifi" name="scifi"> Sci-Fi
+                    </div>
+                    <div class="check">
+                        <input type="checkbox" id="thriller"> Thriller
+                    </div>
+                </div>
+                <div class="timecheck">
+                    <p class="timecheck"> Timeslots </p>
+                    <div class="timecheck">
+                        <input type="checkbox" id="matinee" name="matinee"> Matinee (11 - 3)
+                    </div>
+                    <div class="timecheck">
+                        <input type="checkbox" id="afternoon" name="afternoon"> Afternoon (4 - close)
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container" style ="margin-top:100px; margin-bottom: 200px;">
+    <p><b> Choose movie: </b></p>
+    <form action="moviescreen.html">
+        <input type="image" src="https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_UY1200_CR90,0,630,1200_AL_.jpg" width="150" height="250">
+    </form>
+    <form action="booking.html">
+        <button> Buy Ticket </button>
+    </form>
+</div>
+<!-- /Filter -->
+</body>
+</html>
+
+<script>
+function filterMovies() {
+    var x = document.getElementById("filterbtn");
+    if (x.className === "btn btn-link glyphicon glyphicon-chevron-down")
+        x.className = "btn btn-link glyphicon glyphicon-chevron-up";
+    else
+       x.className = "btn btn-link glyphicon glyphicon-chevron-down";
+}
+</script>

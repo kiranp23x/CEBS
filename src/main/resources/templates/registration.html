@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Registration Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+		body {
+	  		padding-top: 150px;
+            background-color: aliceblue;
+	  	}
+        #title {
+            font-size: 30px;
+        }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Theatre Name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="movielisting.html">Movie Listing</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="checkout.html"><span class="glyphicon glyphicon-check"></span>Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/add"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+        </ul>
+    </div>
+</nav>
+<!--  /Navigation Bar -->
+<!-- Container -->
+<div class="container">
+    <p id="title">Sign Up</p>
+    <p>Mandatory fields indicated by <span style="color=red">*</span> </p>
+    <form action="#" class="was-validated" th:action="@{/add}" method="post">
+        <div class="form-group">
+            <label>First Name *</label>
+            <input name="fname" class="form-control" type="text" placeholder="First Name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name *</label>
+            <input name="lname" class="form-control" type="text" placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+            <label>Email Address *</label>
+            <input name="email" class="form-control" type="text"
+                   placeholder="Email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+        </div>
+        <div class="form-group">
+            <label>Phone Number *</label>
+            <input name="pnumber" class="form-control" type="text" placeholder="(123) 456-7890" required>
+        </div>
+        <div class="form-group">
+            <label>Username *</label>
+            <input name="uname" class="form-control" type="text" placeholder="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password *</label>
+            <input name="pword" class="form-control" type="text" placeholder="password" required>
+        </div>
+        <p>-1 uppercase character {A, B, C.. Z}</p>
+        <p>-1 number {0, 1, ... 9}</p>
+        <p>-1 special character {!, @, #, ... *}</p>
+        <div class="form-group">
+            <label>Home Address</label>
+            <input name="homeAddress" type="text" class="form-control"  placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+            <label>Address 2</label>
+            <input name="homeAddress2" type="text" class="form-control" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>City</label>
+                <input name="homeCity" type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label>State</label>
+                <select name="homeState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>Arizona</option>
+                    <option>Arkansas</option>
+                    <option>California</option>
+                    <option>Colorado</option>
+                    <option>Connecticut</option>
+                    <option>Delaware</option>
+                    <option>Florida</option>
+                    <option>Georgia</option>
+                    <option>Hawaii</option>
+                    <option>Idaho</option>
+                    <option>Illinois</option>
+                    <option>Indiana</option>
+                    <option>Iowa</option>
+                    <option>Kansas</option>
+                    <option>Kentucky</option>
+                    <option>Louisiana</option>
+                    <option>Maine</option>
+                    <option>Maryland</option>
+                    <option>Massachusetts</option>
+                    <option>Michigan</option>
+                    <option>Minnesota</option>
+                    <option>Mississippi</option>
+                    <option>Missouri</option>
+                    <option>Montana</option>
+                    <option>Nebraska</option>
+                    <option>Nevada</option>
+                    <option>New Hampshire</option>
+                    <option>New Jersey</option>
+                    <option>New Mexico</option>
+                    <option>New York</option>
+                    <option>North Carolina</option>
+                    <option>North Dakota</option>
+                    <option>Ohio</option>
+                    <option>Oklahoma</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Rhode Island</option>
+                    <option>South Carolina</option>
+                    <option>South Dakota</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Utah</option>
+                    <option>Vermont</option>
+                    <option>Virgina</option>
+                    <option>Washington</option>
+                    <option>West Virgina</option>
+                    <option>Wisconsin</option>
+                    <option>Wyoming</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Zip</label>
+                <input name="homeZip" type="text" class="form-control">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <p>Optional Payment Information</p>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Name on Card</label>
+                <input name="cardName" type="text" class="form-control" placeholder="Name on Card">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Card Number</label>
+                <input name="cardNumber" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label>Expiration</label>
+                <select name="expirationMonth" class="form-control">
+                    <option selected>Month</option>
+                    <option value="01">Jan (01)</option>
+                    <option value="02">Feb (02)</option>
+                    <option value="03">Mar (03)</option>
+                    <option value="04">Apr (04)</option>
+                    <option value="05">May (05)</option>
+                    <option value="06">June (06)</option>
+                    <option value="07">July (07)</option>
+                    <option value="08">Aug (08)</option>
+                    <option value="09">Sep (09)</option>
+                    <option value="10">Oct (10)</option>
+                    <option value="11">Nov (11)</option>
+                    <option value="12">Dec (12)</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label>.</label>
+                <select name="expirationYear" class="form-control">
+                    <option selected>Year</option>
+                    <option value="19">2019</option>
+                    <option value="20">2020</option>
+                    <option value="21">2021</option>
+                    <option value="22">2022</option>
+                    <option value="23">2023</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Billing Address</label>
+            <input name="billingAddress" type="text" class="form-control" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+            <label>Address 2</label>
+            <input name="billingAddress2" type="text" class="form-control" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>City</label>
+                <input name="billingCity" type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label>State</label>
+                <select name="billingState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Alabama</option>
+                    <option>Alaska</option>
+                    <option>Arizona</option>
+                    <option>Arkansas</option>
+                    <option>California</option>
+                    <option>Colorado</option>
+                    <option>Connecticut</option>
+                    <option>Delaware</option>
+                    <option>Florida</option>
+                    <option>Georgia</option>
+                    <option>Hawaii</option>
+                    <option>Idaho</option>
+                    <option>Illinois</option>
+                    <option>Indiana</option>
+                    <option>Iowa</option>
+                    <option>Kansas</option>
+                    <option>Kentucky</option>
+                    <option>Louisiana</option>
+                    <option>Maine</option>
+                    <option>Maryland</option>
+                    <option>Massachusetts</option>
+                    <option>Michigan</option>
+                    <option>Minnesota</option>
+                    <option>Mississippi</option>
+                    <option>Missouri</option>
+                    <option>Montana</option>
+                    <option>Nebraska</option>
+                    <option>Nevada</option>
+                    <option>New Hampshire</option>
+                    <option>New Jersey</option>
+                    <option>New Mexico</option>
+                    <option>New York</option>
+                    <option>North Carolina</option>
+                    <option>North Dakota</option>
+                    <option>Ohio</option>
+                    <option>Oklahoma</option>
+                    <option>Oregon</option>
+                    <option>Pennsylvania</option>
+                    <option>Rhode Island</option>
+                    <option>South Carolina</option>
+                    <option>South Dakota</option>
+                    <option>Tennessee</option>
+                    <option>Texas</option>
+                    <option>Utah</option>
+                    <option>Vermont</option>
+                    <option>Virgina</option>
+                    <option>Washington</option>
+                    <option>West Virgina</option>
+                    <option>Wisconsin</option>
+                    <option>Wyoming</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Zip</label>
+                <input name="billingZip" type="text" class="form-control">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label>Subscribe to Promo Code</label>
+            <select name="subscribe" class="form-control">
+                <option selected>Yes</option>
+                <option>No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9"></div>
+            <p><input type="submit" class="btn btn-primary" name="Sign Up" href="/verify"></p>
+            <div class="col-sm-offset-3 col-sm-9"></div>
+            <a href="/home">Cancel</a>
+        </div>
+    </form>
+
+</div>
+<!-- /Container -->
+</body>
+</html>
+

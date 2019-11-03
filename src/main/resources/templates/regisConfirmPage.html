@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Registration Confirmation Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+		body {
+	  		padding-top: 150px;
+            background-color: aliceblue;
+	  	}
+        #thanks {
+            font-size: 30px;
+        }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Theatre Name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="movielisting.html">Movie Listing</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="checkout.html"><span class="glyphicon glyphicon-check"></span>Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/add"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+        </ul>
+    </div>
+</nav>
+<!--  /Navigation Bar -->
+<!-- Container -->
+<div class="container">
+    <p id="thanks">Thanks for signing up!</p>
+    <p>Please look at your email to enter the the verification code below to proceed further.</p>
+    <form action="/login" class="was-validated" th:action="@{/verify}" method="post">
+        <div class="form-group">
+            <p><input type="text" name="inputVerify" placeholder="Enter Verification Code" required></p>
+        </div>
+        <button class="btn btn-primary" href="/login">Enter</button>
+    </form>
+</div>
+<!-- /Container -->
+</body>
+</html>

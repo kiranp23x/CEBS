@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Forgot Password Page</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script type=”text/javascript” src=”bootstrap/js/bootstrap.min.js”></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+		body {
+	  		padding-top: 150px;
+            background-color: aliceblue;
+	  	}
+        p {
+            text-align: left;
+            font-size: 30px;
+        }
+        form {
+            margin-top: 60px;
+        }
+	</style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">Theatre Name</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="movielisting.html">Movie Listing</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="checkout.html"><span class="glyphicon glyphicon-check"></span>Checkout</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="registration.html"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+            <li class="active"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+        </ul>
+    </div>
+</nav>
+<!--  /Navigation Bar -->
+<!-- Container -->
+<div class="container">
+    <p>Forgot Password?</p>
+    <form action="/login" class="was-validated" th:action="@{/fpass}" method="post">
+        <div class="form-group">
+            <label>Enter Username</label>
+            <input name="forgot_username" placeholder="Username" class="form-control" type="text" required>
+        </div>
+        <div class="form-group">
+            <label>Enter Email Address</label>
+            <input name="forgot_email" placeholder="Email Address" class="form-control" type="text" required>
+        </div>
+        <div class="col-sm-offset-3 col-sm-9"></div>
+        <p><input type="submit" class="btn btn-primary" name="Submit" href="/login"></p>
+        <div class="col-sm-offset-3 col-sm-9"></div>
+        <a href="/login">Cancel</a>
+    </form>
+</div>
+<!-- /Container -->
+</body>
+</html>
